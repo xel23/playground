@@ -1,22 +1,26 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',
     entry: {
         app: './src/index.js',
     },
-    node: {
-        net: 'empty',
-        tls: 'empty',
-        dns: 'empty',
-        fs: 'empty'
-    },
     devtool: 'inline-source-map',
     devServer: {
         contentBase: './dist'
     },
+    // module: {
+    //     rules: [
+    //         {
+    //             test: /\.html$/,
+    //             use: {
+    //                 loader: 'html-loader'
+    //             },
+    //         },
+    //         { test: /\.png$/, use: [ "url-loader?mimetype=image/png" ] }
+    //     ]
+    // },
     plugins: [
         // new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
