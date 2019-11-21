@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Playground</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.js"></script>
+    <style>
+        body {
+            text-align: center;
+        }
+        #animation {
+            display: inline-block;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+<div id="animation"></div>
+
+<script>
+    bodymovin.setLocationHref(document.location.href);
+    bodymovin.loadAnimation({
+        container: document.getElementById('animation'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'data.json'
+    });
+</script>
+</body>
+</html>
