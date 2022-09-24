@@ -18,7 +18,7 @@
     "express": "^4.17.1",
     "file-loader": "^4.2.0",
     "lottie-web": "^5.5.8",
-    "nodemon": "^1.19.2",
+    "nodemon": "^2.0.20",
     "webpack-dev-middleware": "latest",
     "url-loader": "^2.1.0"
   },
