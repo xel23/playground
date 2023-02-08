@@ -58,6 +58,6 @@ fi
 if [[ $deploy ]] || [[ $tags ]] || [[ $version ]]
 then
   echo "revert version..."
-  npm version ${current_version}
+  npm version ${current_version} --no-git-tag-version
   git push origin ${branch_name}
 fi
