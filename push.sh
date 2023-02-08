@@ -19,6 +19,8 @@ do
     esac
 done
 
+echo ${version}
+
 current_version=$(npm pkg get version)
 current_version="${current_version%\"}"
 current_version="${current_version#\"}"
@@ -33,11 +35,11 @@ then
   echo "successfully removed node_modules"
 fi
 
-if [[ $deploy ]] || [[ $tags ]]
+if [[ $deploy ]] || [[ $tags ]] || [[ $version ]]
 then
   if [[ $version ]]
   then
-    npm version prerelease --preid=${version} > /dev/null 2>&1
+    npm version prerelease --preid=${version} || exit 1
   else
     npm version patch > /dev/null 2>&1
   fi
