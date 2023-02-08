@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Скрипт для пуша, выполняющий "обезьянью" работу
 # Использование:
 # 1) ./push.sh - запушит текущий бранч в origin
@@ -20,6 +21,8 @@ do
 done
 
 current_version=$(npm pkg get version)
+current_version="${current_version%\"}"
+current_version="${current_version#\"}"
 echo "current version: ${current_version}"
 branch_name=$(git symbolic-ref --short HEAD)
 echo "branch name: ${branch_name}"
