@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 # Скрипт для пуша, выполняющий "обезьянью" работу
 # Использование:
 # 1) ./push.sh - запушит текущий бранч в origin
@@ -38,9 +37,9 @@ if [[ $deploy ]] || [[ $tags ]]
 then
   if [[ $version ]]
   then
-    npm version prerelease --preid=${version}
+    npm version prerelease --preid=${version} > /dev/null 2>&1
   else
-    npm version patch
+    npm version patch > /dev/null 2>&1
   fi
 
   echo "push tags..."
@@ -61,6 +60,6 @@ fi
 if [[ $deploy ]] || [[ $tags ]] || [[ $version ]]
 then
   echo "revert version..."
-  npm version ${current_version} --no-git-tag-version
+  npm version ${current_version} > /dev/null 2>&1
   git push origin ${branch_name}
 fi
